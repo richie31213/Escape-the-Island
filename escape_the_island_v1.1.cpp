@@ -24,6 +24,7 @@ void windmill();
 void fence();
 void boulder();
 void forest();
+void bridgeBroken();
 void inValid();
 void showInventory();
 void press();
@@ -84,6 +85,9 @@ int main() {
     }
     else if(functionToCall == "forest") {
       forest();
+    }
+    else if(functionToCall == "bridgeBroken") {
+      bridgeBroken();
     }
     else if(functionToCall == "inValid") {
       inValid();
@@ -194,33 +198,54 @@ void cave() {
     cout << "To go back to the shed, press S.\nTo check your inventory, press I.\nTo go inside and get the shimmering object, press E.\nTo quit the game, press Q.\n";
   }
   else if(inventory[2] == 1) {
-    cout << "\nYou walk to the cave\nThere isn't anything interesting here.\n\n";
+    cout << "\nYou walk to the cave\n\n";
     cout << "To go back to the shed, press S.\nTo check your inventory, press I.\nTo quit the game, press Q.\n";
   }
 }
 
 //BRIDGE FUNCTION
 void bridge() {
-  string bridgeA[7] = {"tent", "inValid", "shed", "inValid", "inventory", "interact", "quit"}; //CREATES BRIDGE ARRAY
-
-  for(i = 0; i < 7; i++) { //SETS CURRENT LOCATION ARRAY EQUAL TO BRIDGE ARRAY
-    curLocA[i] = bridgeA[i];
-  }
-  curLoc = "bridge"; //SETS CURRENT LOCATION TO BRIDGE
-
   if(bridgeFixed == false && inventory[1] == 0) {
+    string bridgeA[7] = {"bridgeBroken", "inValid", "shed", "inValid", "inventory", "interact", "quit"}; //CREATES BRIDGE ARRAY
+
+    for(i = 0; i < 7; i++) { //SETS CURRENT LOCATION ARRAY EQUAL TO BRIDGE ARRAY
+      curLocA[i] = bridgeA[i];
+    }
+    curLoc = "bridge"; //SETS CURRENT LOCATION TO BRIDGE
+
     cout << "\nYou walk to the bridge.\nThe bridge is broken and you need wood to fix it.\nYou also see some rope and think that you might need it.\n\n";
     cout << "To try to cross the bridge, press W.\nTo go back to the shed, press S.\nTo check your inventory, press I.\nTo pick up the rope and try to fix the bridge, press E\nTo quit the game, press Q\n";
   }
   else if(bridgeFixed == false && inventory[1] == 1) {
+    string bridgeA[7] = {"bridgeBroken", "inValid", "shed", "inValid", "inventory", "interact", "quit"}; //CREATES BRIDGE ARRAY
+
+    for(i = 0; i < 7; i++) { //SETS CURRENT LOCATION ARRAY EQUAL TO BRIDGE ARRAY
+      curLocA[i] = bridgeA[i];
+    }
+    curLoc = "bridge"; //SETS CURRENT LOCATION TO BRIDGE
+
     cout << "\nYou walk to the bridge.\nThe bridge is broken and you need wood to fix it.\n\n";
     cout << "To try to cross the bridge, press W.\nTo go back to the shed, press S.\nTo check your inventory, press I.\nTo quit the game, press Q\n";
   }
   else if(bridgeFixed == true && inventory[1] == 0) {
+    string bridgeA[7] = {"tent", "inValid", "shed", "inValid", "inventory", "interact", "quit"}; //CREATES BRIDGE ARRAY
+
+    for(i = 0; i < 7; i++) { //SETS CURRENT LOCATION ARRAY EQUAL TO BRIDGE ARRAY
+      curLocA[i] = bridgeA[i];
+    }
+    curLoc = "bridge"; //SETS CURRENT LOCATION TO BRIDGE
+
     cout << "\nYou walk to the bridge.\nYou have fixed the bridge, but haven't picked up the rope.\n\n";
     cout << "To cross the bridge, press W.\nTo go back to the shed, press S.\nTo check your inventory, press I.\nTo pick up the rope, press E.\nTo quit the game, press Q.\n";
   }
   else if(bridgeFixed == true && inventory[1] == 1) {
+    string bridgeA[7] = {"tent", "inValid", "shed", "inValid", "inventory", "interact", "quit"}; //CREATES BRIDGE ARRAY
+
+    for(i = 0; i < 7; i++) { //SETS CURRENT LOCATION ARRAY EQUAL TO BRIDGE ARRAY
+      curLocA[i] = bridgeA[i];
+    }
+    curLoc = "bridge"; //SETS CURRENT LOCATION TO BRIDGE
+
     cout << "\nYou walk to the bridge.\nYou have fixed the bridge.\n\n";
     cout << "To cross the bridge, press W.\nTo go back to the shed, press S.\nTo check your inventory, press I.\nTo quit the game, press Q\n";
   }
@@ -235,17 +260,12 @@ void tent() {
   }
   curLoc = "tent"; //SETS CURRENT LOCATION TO TENT
 
-  if(bridgeFixed == false) {
-    cout << "\nYou can't cross the bridge, it's still broken.\n\n";
-    chooseAgain();
-  }
-
   if(inventory[6] == 0 && bridgeFixed == true) {
     cout << "\nAfter crossing the bridge you see a tent and walk over to it.\nThe tent might make a good sail.\n\n";
     cout << "To go back to the bridge, press S.\nTo check your inventory, press I.\nTo pick up the tent, press E.\nTo quit the game, press Q.\n";
   }
   else if(inventory[6] == 1 && bridgeFixed == true) {
-    cout << "\nAfter crossing the bridge you see a tent and walk over to it.\nThere's nothing else over here.\n\n";
+    cout << "\nAfter crossing the bridge you see nothing.\n\n";
     cout << "To go back to the bridge, press S.\nTo check your inventory, press I.\nTo quit the game, press Q.";
   }
 }
@@ -287,7 +307,7 @@ void fence() {
     cout << "To go back to the boulder, press S.\nTo check your inventory, press I.\nTo pick up the axe, press E.\nTo quit the game, press Q.\n";
   }
   else if(inventory[0] == 1) {
-    cout << "\nYou walk up to the fence.\nThere is nothing else to do here.\n\n";
+    cout << "\nYou walk up to the fence.\n\n";
     cout << "To go back to the boulder, press S.\nTo check your inventory, press I.\nTo quit the game, press Q.\n";
   }
 }
@@ -323,7 +343,7 @@ void forest() {
     cout << "To go back to the bush, press S.\nTo check your inventory, press I.\nTo get some wood, press E.\nTo quit the game, press Q.\n";
   }
   else if(inventory[0] == 1 && inventory[7] == 1) {
-    cout << "\nYou walk into the forest.\nYou already have wood, there is nothing else to do here.\n";
+    cout << "\nYou walk into the forest.\nYou already have wood\n\n";
     cout << "To go back to the bush, press S.\nTo check your inventory, press I.\nTo quit the game, press Q.\n";
   }
 }
@@ -357,13 +377,13 @@ void interact() {
   if(curLoc == "shed") {
       if (inventory[3] == 0) {
         cout << "\nYou open the door and it is pitch black.\nYou need to find the power before going inside.\n\n";
-        chooseAgain();
+        shed();
       }
       else if(inventory[3] == 1 && inventory[4] == 0 && inventory[5] == 0){
         cout << "\nYou enter the shed and find a hammer and some nails.\nYou put them in your backpack and head out.\n\n";
         inventory[4] = 1;
         inventory[5] = 1;
-        chooseAgain();
+        shed();
       }
       else if(inventory[3] == 1 && inventory[4] == 1 && inventory[5] == 1) {
         done();
@@ -372,63 +392,63 @@ void interact() {
   else if(curLoc == "boat") { //START BOAT INTERACT
     if(inventory[1] == 0 && inventory[4] == 0 && inventory[5] == 0 && inventory[6] == 0 && inventory[7] == 0) {
       cout << "\nYou are missing some resources.\nThe resources you are missing are: rope, hammer and nails, the sail, and wood.\n\n";
-      chooseAgain();
+      boat();
     }
     else if(inventory[1] == 1 && inventory[4] == 0 && inventory[5] == 0 && inventory[6] == 0 && inventory[7] == 0) {
       cout << "\nYou are missing some resources.\nThe resources you are missing are: hammer and nails, the sail, and wood.\n\n";
-      chooseAgain();
+      boat();
     }
     else if(inventory[1] == 0 && inventory[4] == 1 && inventory[5] == 1 && inventory[6] == 0 && inventory[7] == 0) {
       cout << "\nYou are missing some resources.\nThe resources you are missing are: rope, the sail, and wood.\n\n";
-      chooseAgain();
+      boat();
     }
     else if(inventory[1] == 0 && inventory[4] == 0 && inventory[5] == 0 && inventory[6] == 1 && inventory[7] == 0) {
       cout << "\nYou are missing some resources.\nThe resources you are missing are: rope, hammer and nails, and wood.\n\n";
-      chooseAgain();
+      boat();
     }
     else if(inventory[1] == 0 && inventory[4] == 0 && inventory[5] == 0 && inventory[6] == 0 && inventory[7] == 1) {
       cout << "\nYou are missing some resources.\nThe resources you are missing are: rope, hammer and nails, and the sail.\n\n";
-      chooseAgain();
+      boat();
     }
     else if(inventory[1] == 1 && inventory[4] == 1 && inventory[5] == 1 && inventory[6] == 0 && inventory[7] == 0) {
       cout << "\nYou are missing some resources.\nThe resources you are missing are: the sail, and wood.\n\n";
-      chooseAgain();
+      boat();
     }
     else if(inventory[1] == 1 && inventory[4] == 0 && inventory[5] == 0 && inventory[6] == 1 && inventory[7] == 0) {
       cout << "\nYou are missing some resources.\nThe resources you are missing are: hammer and nails, and wood.\n\n";
-      chooseAgain();
+      boat();
     }
     else if(inventory[1] == 1 && inventory[4] == 0 && inventory[5] == 0 && inventory[6] == 0 && inventory[7] == 1) {
       cout << "\nYou are missing some resources.\nThe resources you are missing are: hammer and nails, and the sail.\n\n";
-      chooseAgain();
+      boat();
     }
     else if(inventory[1] == 0 && inventory[4] == 1 && inventory[5] == 1 && inventory[6] == 1 && inventory[7] == 0) {
       cout << "\nYou are missing some resources.\nThe resources you are missing are: rope, and wood.\n\n";
-      chooseAgain();
+      boat();
     }
     else if(inventory[1] == 0 && inventory[4] == 1 && inventory[5] == 1 && inventory[6] == 0 && inventory[7] == 1) {
       cout << "\nYou are missing some resources.\nThe resources you are missing are: rope, and the sail.\n\n";
-      chooseAgain();
+      boat();
     }
     else if(inventory[1] == 1 && inventory[4] == 1 && inventory[5] == 1 && inventory[6] == 1 && inventory[7] == 0) {
       cout << "\nYou are missing a resource.\nThe resource you are missing is: wood.\n\n";
-      chooseAgain();
+      boat();
     }
     else if(inventory[1] == 1 && inventory[4] == 1 && inventory[5] == 1 && inventory[6] == 0 && inventory[7] == 1) {
       cout << "\nYou are missing a resource.\nThe resource you are missing is: the sail.\n\n";
-      chooseAgain();
+      boat();
     }
     else if(inventory[1] == 0 && inventory[4] == 1 && inventory[5] == 1 && inventory[6] == 1 && inventory[7] == 1) {
       cout << "\nYou are missing a resource.\nThe resource you are missing is: rope.\n\n";
-      chooseAgain();
+      boat();
     }
     else if(inventory[1] == 0 && inventory[4] == 0 && inventory[5] == 0 && inventory[6] == 1 && inventory[7] == 1) {
       cout << "\nYou are missing some resources.\nThe resources you are missing are: rope, and hammer and nails.\n\n";
-      chooseAgain();
+      boat();
     }
     else if(inventory[1] == 1 && inventory[4] == 0 && inventory[5] == 0 && inventory[6] == 0 && inventory[7] == 1) {
       cout << "\nYou are missing some resources.\nThe resources you are missing are:  hammer and nails, and the sail.\n\n";
-      chooseAgain();
+      boat();
     }
     else if(inventory[1] == 1 && inventory[4] == 1 && inventory[5] == 1 && inventory[6] == 1 && inventory[7] == 1) {
       cout << "\nYou have fixed your boat and beat the game!\n\n";
@@ -439,7 +459,7 @@ void interact() {
     if(inventory[2] == 0) {
       cout << "\nYou decide to go get the shimmering object.\nWhen you get to it, you notice it's a key.\nYou pick up the key and put it in your backpack.\n\n";
       inventory[2] = 1;
-      chooseAgain();
+      cave();
     }
     else if(inventory[2] == 1)
       done();
@@ -447,12 +467,12 @@ void interact() {
   else if(curLoc == "windmill") { //START WINDMILL INTERACT
     if(inventory[2] == 0) {
       cout << "\nThe door seems to be locked, you need to find the key.\n\n";
-      chooseAgain();
+      windmill();
     }
     else if(inventory[2] == 1 && inventory[3] == 0) {
       cout << "\nYou enter the windmill and see a power switch.\nYou go over to the power switch and turn it on.\n\n";
       inventory[3] = 1;
-      chooseAgain();
+      windmill();
     }
     else if(inventory[2] == 1 && inventory[3] == 1) {
       done();
@@ -462,7 +482,7 @@ void interact() {
     if(inventory[0] == 0) {
       cout << "\nYou pick up the axe and put it in your backpack.\n\n";
       inventory[0] = 1;
-      chooseAgain();
+      fence();
     }
     else if(inventory[0] == 1) {
       done();
@@ -471,12 +491,12 @@ void interact() {
   else if(curLoc == "forest") { //START FOREST INTERACT
     if(inventory[0] == 0) {
       cout << "\nYou need something else to get the wood.\n\n";
-      chooseAgain();
+      forest();
     }
     else if(inventory[0] == 1 && inventory[7] == 0) {
       cout << "\nYou start chopping some wood and putting it in your backpack.\n\n";
       inventory[7] = 1;
-      chooseAgain();
+      forest();
     }
     else if(inventory[7] == 1) {
       done();
@@ -486,18 +506,18 @@ void interact() {
     if(inventory[1] == 0 && inventory[7] == 0) {
       cout << "\nYou pick up the rope, but still need wood to fix the bridge.\n\n";
       inventory[1] == 1;
-      chooseAgain();
+      bridge();
     }
     else if(inventory[1] == 0 && inventory[7] == 1) {
       cout << "\nYou pick up the rope and fix the bridge.\n\n";
       inventory[1] = 1;
       bridgeFixed = true;
-      chooseAgain();
+      bridge();
     }
     else if(inventory[1] == 1 && inventory[7] == 1 && bridgeFixed == false) {
       cout << "\nYou fix the bridge.\n\n";
       bridgeFixed = true;
-      chooseAgain();
+      bridge();
     }
     else if(inventory[1] == 1 && inventory[7] == 1 && bridgeFixed == true) {
       done();
@@ -507,7 +527,7 @@ void interact() {
     if(inventory[6] == 0) {
       cout << "\nYou pick up the tent and store it in your backpack.\n\n";
       inventory[6] = 1;
-      chooseAgain();
+      tent();
     }
     else if(inventory[6] == 1) {
       done();
@@ -516,6 +536,11 @@ void interact() {
   else {
     nothing();
   }
+}
+
+void bridgeBroken() {
+  cout << "\nThe bridge is still broken, you can't cross.\n\n";
+  chooseAgain();
 }
 
 void inValid() {
